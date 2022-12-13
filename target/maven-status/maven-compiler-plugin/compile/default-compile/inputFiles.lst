@@ -1,22 +1,35 @@
-D:\Documentos\Certified Tech Developer\Backend I\Trabajo integrador\Trabajar en este proyecto\ClinicaOdontologica\src\main\java\com\integrador\clinica\entities\Domicilio.java
-D:\Documentos\Certified Tech Developer\Backend I\Trabajo integrador\Trabajar en este proyecto\ClinicaOdontologica\src\main\java\com\integrador\clinica\entities\Paciente.java
-D:\Documentos\Certified Tech Developer\Backend I\Trabajo integrador\Trabajar en este proyecto\ClinicaOdontologica\src\main\java\com\integrador\clinica\repository\DomicilioRepository.java
-D:\Documentos\Certified Tech Developer\Backend I\Trabajo integrador\Trabajar en este proyecto\ClinicaOdontologica\src\main\java\com\integrador\clinica\dto\OdontologoDto.java
-D:\Documentos\Certified Tech Developer\Backend I\Trabajo integrador\Trabajar en este proyecto\ClinicaOdontologica\src\main\java\com\integrador\clinica\service\ITurnoService.java
-D:\Documentos\Certified Tech Developer\Backend I\Trabajo integrador\Trabajar en este proyecto\ClinicaOdontologica\src\main\java\com\integrador\clinica\dto\PacienteDto.java
-D:\Documentos\Certified Tech Developer\Backend I\Trabajo integrador\Trabajar en este proyecto\ClinicaOdontologica\src\main\java\com\integrador\clinica\dto\TurnoDto.java
-D:\Documentos\Certified Tech Developer\Backend I\Trabajo integrador\Trabajar en este proyecto\ClinicaOdontologica\src\main\java\com\integrador\clinica\repository\TurnoRepository.java
-D:\Documentos\Certified Tech Developer\Backend I\Trabajo integrador\Trabajar en este proyecto\ClinicaOdontologica\src\main\java\com\integrador\clinica\dto\UsuarioDto.java
-D:\Documentos\Certified Tech Developer\Backend I\Trabajo integrador\Trabajar en este proyecto\ClinicaOdontologica\src\main\java\com\integrador\clinica\service\Impl\PacienteService.java
-D:\Documentos\Certified Tech Developer\Backend I\Trabajo integrador\Trabajar en este proyecto\ClinicaOdontologica\src\main\java\com\integrador\clinica\entities\Usuario.java
-D:\Documentos\Certified Tech Developer\Backend I\Trabajo integrador\Trabajar en este proyecto\ClinicaOdontologica\src\main\java\com\integrador\clinica\entities\Turno.java
-D:\Documentos\Certified Tech Developer\Backend I\Trabajo integrador\Trabajar en este proyecto\ClinicaOdontologica\src\main\java\com\integrador\clinica\repository\PacienteRepository.java
-D:\Documentos\Certified Tech Developer\Backend I\Trabajo integrador\Trabajar en este proyecto\ClinicaOdontologica\src\main\java\com\integrador\clinica\service\IPacienteService.java
-D:\Documentos\Certified Tech Developer\Backend I\Trabajo integrador\Trabajar en este proyecto\ClinicaOdontologica\src\main\java\com\integrador\clinica\service\Impl\TurnoService.java
-D:\Documentos\Certified Tech Developer\Backend I\Trabajo integrador\Trabajar en este proyecto\ClinicaOdontologica\src\main\java\com\integrador\clinica\controller\OdontologoController.java
-D:\Documentos\Certified Tech Developer\Backend I\Trabajo integrador\Trabajar en este proyecto\ClinicaOdontologica\src\main\java\com\integrador\clinica\repository\OdontologoRepository.java
-D:\Documentos\Certified Tech Developer\Backend I\Trabajo integrador\Trabajar en este proyecto\ClinicaOdontologica\src\main\java\com\integrador\clinica\service\Impl\OdontologoService.java
-D:\Documentos\Certified Tech Developer\Backend I\Trabajo integrador\Trabajar en este proyecto\ClinicaOdontologica\src\main\java\com\integrador\clinica\service\IOdontologoService.java
-D:\Documentos\Certified Tech Developer\Backend I\Trabajo integrador\Trabajar en este proyecto\ClinicaOdontologica\src\main\java\com\integrador\clinica\ClinicaApplication.java
-D:\Documentos\Certified Tech Developer\Backend I\Trabajo integrador\Trabajar en este proyecto\ClinicaOdontologica\src\main\java\com\integrador\clinica\dto\DomicilioDto.java
-D:\Documentos\Certified Tech Developer\Backend I\Trabajo integrador\Trabajar en este proyecto\ClinicaOdontologica\src\main\java\com\integrador\clinica\entities\Odontologo.java
+D:\Documentos\Certified Tech Developer\Backend I\Trabajo integrador\ClinicaOdontologica\src\main\java\com\integrador\clinica\login\repository\UsuarioRepository.java
+D:\Documentos\Certified Tech Developer\Backend I\Trabajo integrador\ClinicaOdontologica\src\main\java\com\integrador\clinica\controller\OdontologoController.java
+D:\Documentos\Certified Tech Developer\Backend I\Trabajo integrador\ClinicaOdontologica\src\main\java\com\integrador\clinica\repository\OdontologoRepository.java
+D:\Documentos\Certified Tech Developer\Backend I\Trabajo integrador\ClinicaOdontologica\src\main\java\com\integrador\clinica\login\entities\Rol.java
+D:\Documentos\Certified Tech Developer\Backend I\Trabajo integrador\ClinicaOdontologica\src\main\java\com\integrador\clinica\repository\DomicilioRepository.java
+D:\Documentos\Certified Tech Developer\Backend I\Trabajo integrador\ClinicaOdontologica\src\main\java\com\integrador\clinica\controller\TurnoController.java
+D:\Documentos\Certified Tech Developer\Backend I\Trabajo integrador\ClinicaOdontologica\src\main\java\util\JsonUtil.java
+D:\Documentos\Certified Tech Developer\Backend I\Trabajo integrador\ClinicaOdontologica\src\main\java\com\integrador\clinica\controller\PacienteController.java
+D:\Documentos\Certified Tech Developer\Backend I\Trabajo integrador\ClinicaOdontologica\src\main\java\com\integrador\clinica\entities\Domicilio.java
+D:\Documentos\Certified Tech Developer\Backend I\Trabajo integrador\ClinicaOdontologica\src\main\java\com\integrador\clinica\service\Impl\OdontologoService.java
+D:\Documentos\Certified Tech Developer\Backend I\Trabajo integrador\ClinicaOdontologica\src\main\java\com\integrador\clinica\dto\OdontologoDto.java
+D:\Documentos\Certified Tech Developer\Backend I\Trabajo integrador\ClinicaOdontologica\src\main\java\com\integrador\clinica\dto\PacienteDto.java
+D:\Documentos\Certified Tech Developer\Backend I\Trabajo integrador\ClinicaOdontologica\src\main\java\com\integrador\clinica\service\Impl\PacienteService.java
+D:\Documentos\Certified Tech Developer\Backend I\Trabajo integrador\ClinicaOdontologica\src\main\java\com\integrador\clinica\login\service\UsuarioService.java
+D:\Documentos\Certified Tech Developer\Backend I\Trabajo integrador\ClinicaOdontologica\src\main\java\com\integrador\clinica\service\ITurnoService.java
+D:\Documentos\Certified Tech Developer\Backend I\Trabajo integrador\ClinicaOdontologica\src\main\java\com\integrador\clinica\exceptions\ResourceNotFoundException.java
+D:\Documentos\Certified Tech Developer\Backend I\Trabajo integrador\ClinicaOdontologica\src\main\java\com\integrador\clinica\login\DataLoader.java
+D:\Documentos\Certified Tech Developer\Backend I\Trabajo integrador\ClinicaOdontologica\src\main\java\com\integrador\clinica\dto\TurnoDto.java
+D:\Documentos\Certified Tech Developer\Backend I\Trabajo integrador\ClinicaOdontologica\src\main\java\com\integrador\clinica\service\IOdontologoService.java
+D:\Documentos\Certified Tech Developer\Backend I\Trabajo integrador\ClinicaOdontologica\src\main\java\com\integrador\clinica\entities\Turno.java
+D:\Documentos\Certified Tech Developer\Backend I\Trabajo integrador\ClinicaOdontologica\src\main\java\com\integrador\clinica\login\SecurityConfiguration.java
+D:\Documentos\Certified Tech Developer\Backend I\Trabajo integrador\ClinicaOdontologica\src\main\java\com\integrador\clinica\dto\DomicilioDto.java
+D:\Documentos\Certified Tech Developer\Backend I\Trabajo integrador\ClinicaOdontologica\src\main\java\com\integrador\clinica\exceptions\ResourceNoContentException.java
+D:\Documentos\Certified Tech Developer\Backend I\Trabajo integrador\ClinicaOdontologica\src\main\java\com\integrador\clinica\login\entities\Usuario.java
+D:\Documentos\Certified Tech Developer\Backend I\Trabajo integrador\ClinicaOdontologica\src\main\java\com\integrador\clinica\exceptions\BadRequestException.java
+D:\Documentos\Certified Tech Developer\Backend I\Trabajo integrador\ClinicaOdontologica\src\main\java\com\integrador\clinica\login\controller\UsuarioController.java
+D:\Documentos\Certified Tech Developer\Backend I\Trabajo integrador\ClinicaOdontologica\src\main\java\com\integrador\clinica\repository\TurnoRepository.java
+D:\Documentos\Certified Tech Developer\Backend I\Trabajo integrador\ClinicaOdontologica\src\main\java\com\integrador\clinica\service\Impl\TurnoService.java
+D:\Documentos\Certified Tech Developer\Backend I\Trabajo integrador\ClinicaOdontologica\src\main\java\com\integrador\clinica\login\PasswordEncoder.java
+D:\Documentos\Certified Tech Developer\Backend I\Trabajo integrador\ClinicaOdontologica\src\main\java\com\integrador\clinica\ClinicaApplication.java
+D:\Documentos\Certified Tech Developer\Backend I\Trabajo integrador\ClinicaOdontologica\src\main\java\com\integrador\clinica\repository\PacienteRepository.java
+D:\Documentos\Certified Tech Developer\Backend I\Trabajo integrador\ClinicaOdontologica\src\main\java\com\integrador\clinica\exceptions\GlobalExceptions.java
+D:\Documentos\Certified Tech Developer\Backend I\Trabajo integrador\ClinicaOdontologica\src\main\java\com\integrador\clinica\service\IPacienteService.java
+D:\Documentos\Certified Tech Developer\Backend I\Trabajo integrador\ClinicaOdontologica\src\main\java\com\integrador\clinica\entities\Paciente.java
+D:\Documentos\Certified Tech Developer\Backend I\Trabajo integrador\ClinicaOdontologica\src\main\java\com\integrador\clinica\entities\Odontologo.java

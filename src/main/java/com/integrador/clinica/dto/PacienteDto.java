@@ -1,14 +1,20 @@
 package com.integrador.clinica.dto;
 
+import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
 
 public class PacienteDto {
 
     private Long id;
-    private String nombre;
-    private String apellido;
-    private int dni;
-    private LocalDate fechaAlta;
-    private DomicilioDto domicilio;
+    @NotNull
+    public String nombre;
+    @NotNull
+    public String apellido;
+    public int dni;
+    public LocalDate fechaAlta;
+    public DomicilioDto domicilio;
 
+    public Long getId() {
+        return id;
+    }
 }

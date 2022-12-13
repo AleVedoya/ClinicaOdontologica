@@ -1,9 +1,17 @@
 package com.integrador.clinica.dto;
 
+import javax.validation.constraints.NotNull;
+
 public class OdontologoDto {
     private Long id;
-    private String nombre;
-    private String apellido;
-    private int matricula;
+    @NotNull
+    public String nombre;
+    @NotNull
+    public String apellido;
+    public Integer matricula;
+
+    public Long getId() {
+        return id;
+    }
 
 }

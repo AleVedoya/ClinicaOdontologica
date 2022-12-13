@@ -3,58 +3,107 @@ package com.integrador.clinica.service.Impl;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.integrador.clinica.dto.OdontologoDto;
 import com.integrador.clinica.entities.Odontologo;
+import com.integrador.clinica.exceptions.BadRequestException;
+import com.integrador.clinica.exceptions.ResourceNoContentException;
+import com.integrador.clinica.exceptions.ResourceNotFoundException;
 import com.integrador.clinica.repository.OdontologoRepository;
 import com.integrador.clinica.service.IOdontologoService;
+
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
+@Service
 public class OdontologoService implements IOdontologoService {
 
+    private static final Logger LOG = Logger.getLogger(OdontologoService.class);
+
     OdontologoRepository odontologoRepository;
+    ObjectMapper mapper;
 
     @Autowired
-    ObjectMapper mapper;
-    public OdontologoService(OdontologoRepository odontologoRepository) {
+    public OdontologoService(OdontologoRepository odontologoRepository, ObjectMapper mapper) {
         this.odontologoRepository = odontologoRepository;
+        this.mapper = mapper;
     }
 
     @Override
-    public Odontologo crearOdontologo(OdontologoDto odontologoDto) {
-        Odontologo newOdontologo = mapper.convertValue(odontologoDto, Odontologo.class);
-        return odontologoRepository.save(newOdontologo);
-    }
-
-    @Override
-    public Optional<Odontologo> buscarOdontologo(Long id) {
-        Optional<Odontologo> odontologo = odontologoRepository.findById(id);
-        if (odontologo.isPresent()) {
-            return odontologo;
+    public OdontologoDto crearOdontologo(OdontologoDto odontologoDto) throws BadRequestException {
+        Odontologo odontologo = odontologoRepository.save(mapper.convertValue(odontologoDto, Odontologo.class));
+        if (odontologo.getId() == null) {
+            LOG.error("No se creó el odontólogo");
+            throw new BadRequestException("No se pudo crear el odontologo");
+        } else if (odontologo.getNombre() == null || odontologo.getNombre().equals("") || odontologo.getApellido() == null || odontologo.getApellido().equals("")) {
+            LOG.error("No se puede crear un odontologo sin nombre y apellido");
         }
-        return Optional.empty(); //Hacer una Exception
+        LOG.info("Odontólogo creado");
+        return mapper.convertValue(odontologo, OdontologoDto.class);
+    }
+
+    public Optional<Odontologo> buscarPorId(Long id) {
+        return odontologoRepository.findById(id);
     }
 
     @Override
-    public Optional<Odontologo> modificarOdontologo(Long id, OdontologoDto odontologoDto) {
-        Optional<Odontologo> odontologo = buscarOdontologo(id);
-        if (odontologo.isPresent()) {
-            Odontologo odontologoModificado = mapper.convertValue(odontologoDto, Odontologo.class);
-            odontologoRepository.save(odontologoModificado);
+    public OdontologoDto buscarOdontologoPorId(Long id) throws ResourceNotFoundException {
+        Odontologo odontologo = odontologoRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("No se encontró el odontólogo con el id " + id));
+        if (odontologo.getId() == null || odontologo.getId() <= 0) {
+            LOG.error("Debe ingresar un id válido");
+        } else {
+            LOG.info("Se encontró el odontólogo con el id " + id);
+            return mapper.convertValue(odontologo, OdontologoDto.class);
         }
-        return Optional.empty(); //Hacer una Exception
+        return null;
     }
 
-    @Override
-    public void eliminarOdontologo(Long id) {
-        Optional<Odontologo> odontologo = buscarOdontologo(id);
-        if (odontologo.isPresent()) {
-            odontologoRepository.deleteById(id);
+    public OdontologoDto buscarPorMatricula(Integer matricula) throws ResourceNoContentException {
+        Optional<Odontologo> odontologo = odontologoRepository.buscarOdontologoPorMatricula(matricula);
+        if (odontologo.isEmpty()) {
+            LOG.error("No se encontró el odontólogo con la matrícula " + matricula);
+            throw new ResourceNoContentException("No se encontró el odontólogo con la matrícula " + matricula);
+        } else {
+            LOG.info("Se encontró el odontólogo con la matrícula " + matricula);
+            return mapper.convertValue(odontologo, OdontologoDto.class);
         }
     }
 
     @Override
-    public List<Odontologo> listarOdontologos() {
-        return odontologoRepository.findAll();
+    public OdontologoDto modificarOdontologo(OdontologoDto odontologoDto) throws ResourceNotFoundException {
+        Odontologo odontologoAModificar = mapper.convertValue(odontologoDto, Odontologo.class);
+        if (odontologoAModificar.getId() == null || odontologoAModificar.getId() <= 0) {
+            LOG.error("Debe ingresar un id válido");
+            throw new ResourceNotFoundException("Debe ingresar un id válido");
+        }
+        LOG.info("Se modificó el odontólogo con el id " + odontologoAModificar.getId());
+        Odontologo odontologoModificado = odontologoRepository.save(odontologoAModificar);
+        return mapper.convertValue(odontologoModificado, OdontologoDto.class);
+    }
+
+    @Override
+    public void eliminarOdontologo(Long id) throws ResourceNotFoundException {
+        OdontologoDto odontologoAEliminar = buscarOdontologoPorId(id);
+        if (odontologoAEliminar.getId() == null || odontologoAEliminar.getId() <= 0) {
+            LOG.error("Debe ingresar un id válido");
+            throw new ResourceNotFoundException("Debe ingresar un id válido");
+        }
+        LOG.info("Se eliminó el odontólogo con el id " + id);
+        odontologoRepository.deleteById(id);
+    }
+
+    @Override
+    public Set<OdontologoDto> listarOdontologos() throws ResourceNoContentException {
+        List<Odontologo> odontologos = odontologoRepository.findAll();
+        Set<OdontologoDto> odontologosDto = new HashSet<>();
+        if (odontologos.isEmpty()) {
+            LOG.error("No hay odontólogos para listar");
+            throw new ResourceNoContentException("La lista de odontólogos está vacía");
+        }
+        for (Odontologo odontologo : odontologos) {
+            odontologosDto.add(mapper.convertValue(odontologo, OdontologoDto.class));
+        }
+        LOG.info("La lista de odontólogos tiene " + odontologosDto.size() + " odontólogos");
+        return odontologosDto;
     }
 }

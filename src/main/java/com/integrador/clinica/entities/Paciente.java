@@ -1,24 +1,47 @@
 package com.integrador.clinica.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.Set;
 
 @Entity
 @Table(name = "pacientes")
 public class Paciente{
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @SequenceGenerator(name = "paciente_sequence", sequenceName = "paciente_sequence", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "paciente_sequence")
     private Long id;
     private String nombre;
     private String apellido;
     private int dni;
     private LocalDate fechaAlta;
-
+    @OneToOne (fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JoinColumn(name = "domicilio_id")
     private Domicilio domicilio;
+
+    @OneToMany(mappedBy ="paciente")
+    @JsonIgnore
+    private Set<Turno> turno;
+
+    public Paciente() {
+    }
+
+    public Paciente(String nombre, String apellido, int dni, LocalDate fechaAlta) {
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.dni = dni;
+        this.fechaAlta = fechaAlta;
+    }
 
     public Long getId() {
         return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getNombre() {
@@ -61,12 +84,11 @@ public class Paciente{
         this.domicilio = domicilio;
     }
 
-    public String mostrarPaciente() {
-        return "ID Paciente: " + id + ", " +
-               "Nombre: " + nombre + ", " +
-               "Apellido: " + apellido + ", " +
-               "DNI: " + dni + " \n" +
-               "Fecha de alta: " + fechaAlta + " \n" +
-               "Domicilio:\n" + domicilio;
+    public Set<Turno> getTurno() {
+        return turno;
+    }
+
+    public void setTurno(Set<Turno> turno) {
+        this.turno = turno;
     }
 }

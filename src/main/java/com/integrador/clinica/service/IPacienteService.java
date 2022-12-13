@@ -1,19 +1,17 @@
 package com.integrador.clinica.service;
 
-import com.integrador.clinica.dto.OdontologoDto;
 import com.integrador.clinica.dto.PacienteDto;
-import com.integrador.clinica.entities.Odontologo;
-import com.integrador.clinica.entities.Paciente;
+import com.integrador.clinica.exceptions.BadRequestException;
+import com.integrador.clinica.exceptions.ResourceNoContentException;
+import com.integrador.clinica.exceptions.ResourceNotFoundException;
 
-import java.util.List;
-import java.util.Optional;
+import java.util.Set;
 
 public interface IPacienteService {
 
-    Paciente crearPaciente(PacienteDto pacienteDto);
-    Optional<Paciente> buscarPaciente(Long id);
-    Optional<Paciente> modificarPaciente(Long id, PacienteDto pacienteDto);
-    void eliminarPaciente(Long id);
-    List<Paciente> listarPaciente();
-
+    PacienteDto crearPaciente(PacienteDto pacienteDto) throws BadRequestException, ResourceNotFoundException;
+    PacienteDto buscarPacientePorId(Long id) throws ResourceNotFoundException;
+    PacienteDto modificarPaciente(PacienteDto pacienteDto) throws ResourceNotFoundException;
+    void eliminarPaciente(Long id) throws ResourceNotFoundException;
+    Set<PacienteDto> listarPaciente() throws ResourceNoContentException;
 }

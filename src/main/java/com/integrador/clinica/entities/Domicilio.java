@@ -1,6 +1,5 @@
 package com.integrador.clinica.entities;
 
-
 import javax.persistence.*;
 
 @Entity
@@ -8,15 +7,31 @@ import javax.persistence.*;
 public class Domicilio {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @SequenceGenerator(name = "domicilio_sequence", sequenceName = "domicilio_sequence", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "domicilio_sequence")
     private Long id;
     private String calle;
     private int numero;
     private String localidad;
     private String provincia;
 
+    public Domicilio() {
+    }
+
+    public Domicilio(Long id, String calle, int numero, String localidad, String provincia) {
+        this.id = id;
+        this.calle = calle;
+        this.numero = numero;
+        this.localidad = localidad;
+        this.provincia = provincia;
+    }
+
     public Long getId() {
         return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getCalle() {
@@ -49,13 +64,5 @@ public class Domicilio {
 
     public void setProvincia(String provincia) {
         this.provincia = provincia;
-    }
-
-    @Override
-    public String toString() {
-        return "Calle: " + calle + ", " +
-                "Nro.: " + numero + ", " +
-                "Localidad: " + localidad + ", " +
-                "Provincia: " + provincia;
     }
 }
